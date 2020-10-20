@@ -1,2 +1,1 @@
-# simsalabim
-duitmu ilang
+1
