@@ -1,0 +1,15 @@
+env:
+  browser: true
+  es2021: true
+extends: 'eslint:recommended'
+parserOptions:
+  ecmaVersion: 12
+  sourceType: module
+rules: {}
+globals:
+  LOCAL_DATE_OPTIONS: readonly
+  isLolApiActive: writable
+  readMore: readonly
+  color: readonly
+  simi: writable
+  q3: readonly
