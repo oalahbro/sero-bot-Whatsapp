@@ -1536,7 +1536,7 @@ const HandleMsg = async (message, browser, client = new Client()) => {
                         let _mp4Url
                         if (!/\d/.test(command)) {
                             let result = await scraper.snaptik(browser, urls)
-                            _mp4Url = result?.source
+                            _mp4Url = result?.server1
                         }
                         if (command.endsWith('1')) {
                             let result = await scraper.snaptik(browser, urls)
