@@ -1877,14 +1877,13 @@ const HandleMsg = async (message, browser, client = new Client()) => {
                     else{
                     let { data: semuaKota } = await get(`https://api-xcoders.site/api/search/xnxx?query=${arg}&apikey=5XQ3y7u5zg`)
                             .catch(e => { return printError(e) })
-                        console.log(semuaKota.result[0]["link"])
                         let hasil = `╔══✪〘 Daftar  BKP ${arg} 〙✪\n`
                         for (let kota of semuaKota.result) {
-                            hasil += '╠➥  Title :'
+                            hasil += '╠➥  TITLE :'
                             hasil += `${kota["title"]}\n`
                             hasil += '╠➥  DURASI :'
                             hasil += `${kota["duration"]}\n`
-                            hasil += '╠➥  QUALITY :'
+                            hasil += '╠➥  KUALITAS :'
                             hasil += `${kota["quality"]}\n`
                             hasil += '╠➥  LINK THUMB :'
                             hasil += `${kota["thumb"]}\n`
