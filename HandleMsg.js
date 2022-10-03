@@ -1573,42 +1573,39 @@ const HandleMsg = async (message, browser, client = new Client()) => {
                     if (args.length === 0 && !isQuotedChat) return reply(`Masukkan urlnya kakak || Contoh : "https://www.xnxx.com/video-139ckh80/ex_girlfriend"`)
                     let urls = isQuotedChat ? quotedMsg.body : arg
                     if (!isUrl(urls)) { return reply('Maaf, link yang kamu kirim tidak valid.') }
-                    let xapi = `https://api-xcoders.site/api/download/xnxx?url=${urls}&apikey=5XQ3y7u5zg` 
+                    let xapi = `https://api-xcoders.site/api/download/xnxx?url=${urls}&apikey=api` 
+                    //5XQ3y7u5zg
                     sendText(resMsg.wait)
                     let { data: hasil } = await get(xapi).catch(e => { return printError(e) })
                     let link = hasil.result.url
-                    console.log(link)
-
-                    const generateRandomString = (myLength) => {
-                        const chars =
-                            "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz1234567890";
-                        const randomArray = Array.from(
-                            { length: myLength },
-                            (v, k) => chars[Math.floor(Math.random() * chars.length)]
-                        );
-                    
-                        const randomString = randomArray.join("");
-                        return randomString;
-                    };
-                    let nama = generateRandomString(10)
-                    const response = await fetch(link);
-                    const buffer = await response.buffer();
-                    fs.writeFile('./src/' + nama + '.mp4', buffer, () => {
-                        let path = `./src/${nama}.mp4`
-                        // let media = MessageMedia.fromFilePath('./src/' + nama + '.mp4')
-                        client.sendFile(from, path, '', '', id)
-                        console.log('finished downloading!')
-                        try {
-                            fs.unlinkSync('./mp4/' + nama + '.mp4')
-                        } catch (err) {
-                            console.error(err)
-                        }
-                    });
-                    // let result = await scraper.ssstik(browser, link).catch(e => { return printError(e) })
-                    // let _id = quotedMsg != null ? quotedMsg.id : id
-                    // if (result) client.sendFileFromUrl(from, result, '', '', _id).catch(e => { return printError(e) })
-                    // else reply('Maaf, link yang kamu kirim tidak valid.')
-                   
+                    if(!link){
+                        sendText("apikey sudah habis :((")
+                    }
+                    else{
+                        const generateRandomString = (myLength) => {
+                            const chars =
+                                "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz1234567890";
+                            const randomArray = Array.from(
+                                { length: myLength },
+                                (v, k) => chars[Math.floor(Math.random() * chars.length)]
+                            );
+                            const randomString = randomArray.join("");
+                            return randomString;
+                        };
+                        let nama = generateRandomString(10)
+                        const response = await fetch(link);
+                        const buffer = await response.buffer();
+                        fs.writeFile('./src/' + nama + '.mp4', buffer, () => {
+                            let path = `./src/${nama}.mp4`
+                            client.sendFile(from, path, '', '', id).catch(e => { return printError(e) })
+                            console.log('finished downloading!')
+                            try {
+                                if (existsSync(path)) unlinkSync(path)
+                            } catch (err) {
+                                console.error(err)
+                            }
+                        });
+                    }                   
                     break
                 }
 
