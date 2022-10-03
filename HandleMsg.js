@@ -1577,11 +1577,10 @@ const HandleMsg = async (message, browser, client = new Client()) => {
                     //5XQ3y7u5zg
                     sendText(resMsg.wait)
                     let { data: hasil } = await get(xapi).catch(e => { return printError(e) })
-                    let link = hasil.result.url
-                    if(hasil.includes("Apikey Invalid")){
-                        return reply("apikey sudah habis 😔")
-                    }
-                    else{
+                    try{
+                        const cekapi = JSON.parse(hasil);
+                        console.log(cekapi)
+                        let link = hasil.result.url
                         const generateRandomString = (myLength) => {
                             const chars =
                                 "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz1234567890";
@@ -1598,13 +1597,12 @@ const HandleMsg = async (message, browser, client = new Client()) => {
                         fs.writeFile('./src/' + nama + '.mp4', buffer, () => {
                             let path = `./src/${nama}.mp4`
                             client.sendFile(from, path, '', '', id).catch(e => { return printError(e) })
-                            try {
                                 if (existsSync(path)) unlinkSync(path)
-                            } catch (err) {
-                                console.error(err)
-                            }
                         });
-                    }                   
+                    }     
+                    catch(err){
+                        return reply("apikey sudah habis 😔")
+                    }
                     break
                 }
 
