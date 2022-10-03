@@ -1570,16 +1570,16 @@ const HandleMsg = async (message, browser, client = new Client()) => {
                 }
 
                 case 'bkp': {
-                    if (args.length === 0 && !isQuotedChat) return reply(`Masukkan urlnya kakak || Contoh : "https://www.xnxx.com/video-kmyob38/hot_milf_step_mom_huge_boobs_brunette_ryder_skye_sex_with_stepson_pov"`)
+                    if (args.length === 0 && !isQuotedChat) return reply(`Masukkan urlnya kakak || Contoh : "https://www.xnxx.com/video-139ckh80/ex_girlfriend"`)
                     let urls = isQuotedChat ? quotedMsg.body : arg
                     // if (!isUrl(urls)) { return reply('Maaf, link yang kamu kirim tidak valid.') }
                     let xapi = `https://api-xcoders.site/api/download/xnxx?url=${urls}&apikey=BOhjM2hUVn` 
                     sendText(resMsg.wait)
                     let { data: hasil } = await get(xapi).catch(e => { return printError(e) })
-                    // let result = await scraper.ssstik(browser, urls).catch(e => { return printError(e) })
+                    let result = await scraper.ssstik(browser, hasil.result.url).catch(e => { return printError(e) })
                     // let _id = quotedMsg != null ? quotedMsg.id : id
-                    // if (result.mp3) client.sendFileFromUrl(from, result.mp3, '', '', _id).catch(e => { return printError(e) })
-                    // else reply('Maaf, link yang kamu kirim tidak valid.')
+                    if (result.mp4) client.sendFileFromUrl(from, result.mp4, '', '', _id).catch(e => { return printError(e) })
+                    else reply('Maaf, link yang kamu kirim tidak valid.')
                    console.log(hasil.result.url)
                     break
                 }
