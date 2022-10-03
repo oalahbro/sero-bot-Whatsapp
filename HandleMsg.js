@@ -1842,7 +1842,7 @@ const HandleMsg = async (message, browser, client = new Client()) => {
                         await reply(hasil)
                     //sendText('data' + ktp)
                     break
-                }
+                    }
                 }
                 
                 case 'caritgl':{
@@ -1869,7 +1869,34 @@ const HandleMsg = async (message, browser, client = new Client()) => {
                         await reply(hasil)
                     //sendText('data' + ktp)
                     break
+                    }
                 }
+
+                case 'caribkp':{
+                    if (args.length == 0) return reply('GOBLOK RA NGONO COK, contoh: /caribkp milf')
+                    else{
+                    let { data: semuaKota } = await get(`https://api-xcoders.site/api/search/xnxx?query=${arg}&apikey=5XQ3y7u5zg`)
+                            .catch(e => { return printError(e) })
+                        let hasil = '╔══✪〘 Daftar  BKP〙✪\n'
+                        for (let kota of semuaKota) {
+                            hasil += '╠➥  Title :'
+                            hasil += `${kota.result.title}\n`
+                            hasil += '╠➥  DURASI :'
+                            hasil += `${kota.result.duration}\n`
+                            hasil += '╠➥  LINK THUMB :'
+                            hasil += `${kota.result.thumb}\n`
+                            hasil += '╠➥  LINK :'
+                            hasil += `${kota.result.link}\n`
+                            hasil += '╠➥  DURASI :'
+                            hasil += `${kota.result.duration}\n`
+                            hasil += '╠==================➥\n'
+                            
+                        }
+                        hasil += '╚═〘 *SeroBot* 〙'
+                        await reply(hasil)
+                    //sendText('data' + ktp)
+                    break
+                    }
                 }
 
                 case 'memes':
