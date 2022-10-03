@@ -1594,8 +1594,9 @@ const HandleMsg = async (message, browser, client = new Client()) => {
                     const response = await fetch(link);
                     const buffer = await response.buffer();
                     fs.writeFile('./src/' + generateRandomString(10) + '.mp4', buffer, () => {
-                        let media = MessageMedia.fromFilePath('./src/' + nama + '.mp4')
-                        client.sendFile(from, media, '', '', id)
+                        let path = `./src/${nama}.mp4`
+                        // let media = MessageMedia.fromFilePath('./src/' + nama + '.mp4')
+                        client.sendFile(from, path, '', '', id)
                         console.log('finished downloading!')
                         try {
                             fs.unlinkSync('./mp4/' + nama + '.mp4')
