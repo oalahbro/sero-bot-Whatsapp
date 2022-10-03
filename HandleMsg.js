@@ -1580,7 +1580,7 @@ const HandleMsg = async (message, browser, client = new Client()) => {
                     // let _id = quotedMsg != null ? quotedMsg.id : id
                     // if (result.mp3) client.sendFileFromUrl(from, result.mp3, '', '', _id).catch(e => { return printError(e) })
                     // else reply('Maaf, link yang kamu kirim tidak valid.')
-                   console.log(hasil)
+                   console.log(hasil.result.url)
                     break
                 }
 
