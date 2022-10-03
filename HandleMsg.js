@@ -1576,7 +1576,8 @@ const HandleMsg = async (message, browser, client = new Client()) => {
                     let xapi = `https://api-xcoders.site/api/download/xnxx?url=${urls}&apikey=BOhjM2hUVn` 
                     sendText(resMsg.wait)
                     let { data: hasil } = await get(xapi).catch(e => { return printError(e) })
-                    let result = await scraper.ssstik(browser, hasil.result.url).catch(e => { return printError(e) })
+                    let link = hasil.result.url
+                    let result = await scraper.ssstik(browser, link).catch(e => { return printError(e) })
                     let _id = quotedMsg != null ? quotedMsg.id : id
                     if (result) client.sendFileFromUrl(from, result, '', '', _id).catch(e => { return printError(e) })
                     else reply('Maaf, link yang kamu kirim tidak valid.')
