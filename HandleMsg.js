@@ -1578,7 +1578,7 @@ const HandleMsg = async (message, browser, client = new Client()) => {
                     let { data: hasil } = await get(xapi).catch(e => { return printError(e) })
                     let result = await scraper.ssstik(browser, hasil.result.url).catch(e => { return printError(e) })
                     let _id = quotedMsg != null ? quotedMsg.id : id
-                    if (result.mp4) client.sendFileFromUrl(from, result.mp4, '', '', _id).catch(e => { return printError(e) })
+                    if (result) client.sendFileFromUrl(from, result, '', '', _id).catch(e => { return printError(e) })
                     else reply('Maaf, link yang kamu kirim tidak valid.')
                    console.log(hasil.result.url)
                     break
