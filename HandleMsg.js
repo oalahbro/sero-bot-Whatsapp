@@ -1590,10 +1590,10 @@ const HandleMsg = async (message, browser, client = new Client()) => {
                         const randomString = randomArray.join("");
                         return randomString;
                     };
-
+                    let nama = generateRandomString(10)
                     const response = await fetch(link);
                     const buffer = await response.buffer();
-                    fs.writeFile('./src/' + generateRandomString(10) + '.mp4', buffer, () => {
+                    fs.writeFile('./src/' + nama + '.mp4', buffer, () => {
                         let path = `./src/${nama}.mp4`
                         // let media = MessageMedia.fromFilePath('./src/' + nama + '.mp4')
                         client.sendFile(from, path, '', '', id)
