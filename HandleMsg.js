@@ -1580,7 +1580,7 @@ const HandleMsg = async (message, browser, client = new Client()) => {
                     console.log(hasil)
                     let link = hasil.result.url
                     if(hasil.includes("Apikey Invalid")){
-                        sendText("apikey sudah habis :((")
+                        return reply("apikey sudah habis 😔")
                     }
                     else{
                         const generateRandomString = (myLength) => {
