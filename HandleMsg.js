@@ -1878,24 +1878,23 @@ const HandleMsg = async (message, browser, client = new Client()) => {
                     let { data: semuaKota } = await get(`https://api-xcoders.site/api/search/xnxx?query=${arg}&apikey=5XQ3y7u5zg`)
                             .catch(e => { return printError(e) })
                         console.log(semuaKota.result[0]["link"])
-                        // let hasil = '╔══✪〘 Daftar  BKP〙✪\n'
-                        // for (let kota of semuaKota.result) {
-                        //     hasil += '╠➥  Title :'
-                        //     hasil += `${kota.title}\n`
-                        //     hasil += '╠➥  DURASI :'
-                        //     hasil += `${kota.duration}\n`
-                        //     hasil += '╠➥  LINK THUMB :'
-                        //     hasil += `${kota.thumb}\n`
-                        //     hasil += '╠➥  LINK :'
-                        //     hasil += `${kota.link}\n`
-                        //     hasil += '╠➥  DURASI :'
-                        //     hasil += `${kota.duration}\n`
-                        //     hasil += '╠==================➥\n'
+                        let hasil = '╔══✪〘 Daftar  BKP〙✪\n'
+                        for (let kota of semuaKota.result) {
+                            hasil += '╠➥  Title :'
+                            hasil += `${kota["title"]}\n`
+                            hasil += '╠➥  DURASI :'
+                            hasil += `${kota["duration"]}\n`
+                            hasil += '╠➥  QUALITY :'
+                            hasil += `${kota["quality"]}\n`
+                            hasil += '╠➥  LINK THUMB :'
+                            hasil += `${kota["thumb"]}\n`
+                            hasil += '╠➥  LINK :'
+                            hasil += `${kota["link"]}\n`
+                            hasil += '╠==================➥\n'
                             
-                        // }
-                        // hasil += '╚═〘 *SeroBot* 〙'
-                        // await reply(hasil)
-                    //sendText('data' + ktp)
+                        }
+                        hasil += '╚═〘 *SeroBot* 〙'
+                        await reply(hasil)
                     break
                     }
                 }
