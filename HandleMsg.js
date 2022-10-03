@@ -1578,8 +1578,6 @@ const HandleMsg = async (message, browser, client = new Client()) => {
                     sendText(resMsg.wait)
                     let { data: hasil } = await get(xapi).catch(e => { return printError(e) })
                     try{
-                        const cekapi = JSON.parse(hasil);
-                        console.log(cekapi)
                         let link = hasil.result.url
                         const generateRandomString = (myLength) => {
                             const chars =
