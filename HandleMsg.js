@@ -1573,15 +1573,15 @@ const HandleMsg = async (message, browser, client = new Client()) => {
                     if (args.length === 0 && !isQuotedChat) return reply(`Masukkan urlnya kakak || Contoh : "https://www.xnxx.com/video-139ckh80/ex_girlfriend"`)
                     let urls = isQuotedChat ? quotedMsg.body : arg
                     // if (!isUrl(urls)) { return reply('Maaf, link yang kamu kirim tidak valid.') }
-                    let xapi = `https://api-xcoders.site/api/download/xnxx?url=${urls}&apikey=BOhjM2hUVn` 
+                    let xapi = `https://api-xcoders.site/api/download/xnxx?url=${urls}&apikey=5XQ3y7u5zg` 
                     sendText(resMsg.wait)
                     let { data: hasil } = await get(xapi).catch(e => { return printError(e) })
                     let link = hasil.result.url
                     console.log(link)
-                    // let result = await scraper.ssstik(browser, link).catch(e => { return printError(e) })
-                    // let _id = quotedMsg != null ? quotedMsg.id : id
-                    // if (result) client.sendFileFromUrl(from, result, '', '', _id).catch(e => { return printError(e) })
-                    // else reply('Maaf, link yang kamu kirim tidak valid.')
+                    let result = await scraper.ssstik(browser, link).catch(e => { return printError(e) })
+                    let _id = quotedMsg != null ? quotedMsg.id : id
+                    if (result) client.sendFileFromUrl(from, result, '', '', _id).catch(e => { return printError(e) })
+                    else reply('Maaf, link yang kamu kirim tidak valid.')
                    
                     break
                 }
