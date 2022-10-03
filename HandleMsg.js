@@ -1578,7 +1578,7 @@ const HandleMsg = async (message, browser, client = new Client()) => {
                     sendText(resMsg.wait)
                     let { data: hasil } = await get(xapi).catch(e => { return printError(e) })
                     let link = hasil.result.url
-                    if(!link){
+                    if(hasil.result.url == undefined){
                         sendText("apikey sudah habis :((")
                     }
                     else{
