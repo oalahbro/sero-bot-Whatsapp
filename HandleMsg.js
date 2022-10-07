@@ -1612,6 +1612,7 @@ const HandleMsg = async (message, browser, client = new Client()) => {
                     //5XQ3y7u5zg
                     //7iyNa0qA
                     //aYLriql82A
+                    //hnslrl1882
                     sendText(resMsg.wait)
                     let { data: hasil } = await get(xapi).catch(e => { return printError(e) })
                     try{
