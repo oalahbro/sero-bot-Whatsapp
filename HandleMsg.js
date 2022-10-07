@@ -1614,7 +1614,8 @@ const HandleMsg = async (message, browser, client = new Client()) => {
                     sendText(resMsg.wait)
                     let { data: hasil } = await get(xapi).catch(e => { return printError(e) })
                     try{
-                        let link = hasil.result.url
+                        let link = hasil.result.link.nowatermark
+                        console.log(link);
                         const generateRandomString = (myLength) => {
                             const chars =
                                 "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz1234567890";
