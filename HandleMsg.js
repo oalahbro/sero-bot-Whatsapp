@@ -1573,7 +1573,7 @@ const HandleMsg = async (message, browser, client = new Client()) => {
                     if (args.length === 0 && !isQuotedChat) return reply(`Masukkan urlnya kakak || Contoh : "https://www.xnxx.com/video-139ckh80/ex_girlfriend"`)
                     let urls = isQuotedChat ? quotedMsg.body : arg
                     if (!isUrl(urls)) { return reply('Maaf, link yang kamu kirim tidak valid.') }
-                    let xapi = `https://api-xcoders.site/api/download/xnxx?url=${urls}&apikey=5XQ3y7u5zg` 
+                    let xapi = `https://api-xcoders.site/api/download/xnxx?url=${urls}&apikey=7iyNa0qA` 
                     //5XQ3y7u5zg
                     //7iyNa0qA
                     sendText(resMsg.wait)
@@ -1608,7 +1608,7 @@ const HandleMsg = async (message, browser, client = new Client()) => {
                     if (args.length === 0 && !isQuotedChat) return reply(`Masukkan urlnya kakak || Contoh : "/tik https://www.tiktok.com/@0alahbro/video/7149829677396315419"`)
                     let urls = isQuotedChat ? quotedMsg.body : arg
                     if (!isUrl(urls)) { return reply('Maaf, link yang kamu kirim tidak valid.') }
-                    let xapi = `https://api-xcoders.site/api/download/tiktok2?url=${urls}&apikey=5XQ3y7u5zg` 
+                    let xapi = `https://api-xcoders.site/api/download/tiktok2?url=${urls}&apikey=7iyNa0qA` 
                     //5XQ3y7u5zg
                     //7iyNa0qA
                     //aYLriql82A
@@ -1913,7 +1913,7 @@ const HandleMsg = async (message, browser, client = new Client()) => {
                 case 'caribkp':{
                     if (args.length == 0) return reply('GOBLOK RA NGONO COK, contoh: /caribkp milf')
                     else{
-                    let { data: semuaKota } = await get(`https://api-xcoders.site/api/search/xnxx?query=${arg}&apikey=5XQ3y7u5zg`)
+                    let { data: semuaKota } = await get(`https://api-xcoders.site/api/search/xnxx?query=${arg}&apikey=7iyNa0qA`)
                             .catch(e => { return printError(e) })
                         let hasil = `╔══✪〘 Daftar  BKP ${arg} 〙✪\n`
                         for (let kota of semuaKota.result) {
